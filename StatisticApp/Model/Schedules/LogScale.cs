@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StatisticApp.Model.Shedules
+namespace StatisticApp.Model.Schedules
 {
     public class LogScale : IScale
     {

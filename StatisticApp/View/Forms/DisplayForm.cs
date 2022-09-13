@@ -10,7 +10,9 @@ using System.Windows.Forms;
 
 using StatisticApp.Model;
 using StatisticApp.Model.Births;
-using StatisticApp.Model.Shedules;
+using StatisticApp.Model.Schedules;
+
+using Point = StatisticApp.Model.Schedules.Point;
 
 namespace StatisticApp.View.Forms
 {
@@ -23,7 +25,14 @@ namespace StatisticApp.View.Forms
             List<BirthDataSet> birthDataSets = new List<BirthDataSet>();
             foreach (string filePath in filePathList)
             {
-                birthDataSets.Add(CsvReader.ReadBitrhDataSet(filePath));
+                if (filePath.EndsWith(".csv"))
+                {
+                    birthDataSets.Add(CsvManager.ReadBitrhDataSet(filePath));
+                }
+                else if (filePath.EndsWith(".xlsx"))
+                {
+                    birthDataSets.Add(XlsxReader.ReadBitrhDataSet(filePath));
+                }
             }
             DisplayControl.Schedule = GetSchedule(birthDataSets);
         }
@@ -31,13 +40,18 @@ namespace StatisticApp.View.Forms
         private Schedule GetSchedule(List<BirthDataSet> birthDataSets)
         {
             Schedule result = new Schedule();
-            result.Axises.Add(new Axis(new LogScale()));
-            result.Axises.Add(new Axis(new LinearScale()));
+            result.Axises.Add(new Axis(new LogScale(), (min) => min * 0.9, (max) => max * 1.1));
+            result.Axises.Add(new Axis(new LinearScale(), (min) => min * 0.9, (max) => max * 1.1));
             foreach(BirthDataSet birthData in birthDataSets)
             {
-                result.Axises[0].Values.Add(birthData.Count);
-                result.Axises[1].Values.Add(birthData.SexRatio);
+                result.Shapes.Add(new Point(new List<double>{birthData.Count,
+                    birthData.SexRatio}));
             }
+            
+            double generalSexRatio = BirthDataSet.GetGeneralSexRatio(birthDataSets);
+            result.Shapes.Add(new Line(
+                new Point(new List<double> {result.GetMin(0), generalSexRatio}),
+                new Point(new List<double> {result.GetMax(0), generalSexRatio })));
             return result;
         }
     }

@@ -11,6 +11,8 @@ namespace StatisticApp.View.Controls
 
         private List<string> _filePathList = new List<string>();
 
+        private string _filter = "Tables (*.csv;*.xlsx)|*.csv;*.xlsx";
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<string> FilePathList
         {
@@ -63,6 +65,7 @@ namespace StatisticApp.View.Controls
         private void AddButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = _filter;
             if(fileDialog.ShowDialog() == DialogResult.OK)
             {
                 FilePathList.Add(fileDialog.FileName);
@@ -75,6 +78,7 @@ namespace StatisticApp.View.Controls
             if (ListBox.SelectedIndex != -1)
             {
                 OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.Filter = _filter;
                 fileDialog.FileName = FilePathList[SelectedIndex];
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {

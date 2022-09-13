@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace StatisticApp.Model
 {
-    public static class FileManager
+    public static class JsonManager
     {
         public static T Load<T>(string filePath)
         {

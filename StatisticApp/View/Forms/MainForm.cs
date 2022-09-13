@@ -1,12 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using StatisticApp.Model;
@@ -26,7 +19,7 @@ namespace StatisticApp.View.Forms
         {
             try
             {
-                List<string> filePathList = FileManager.Load<List<string>>(_filePath);
+                List<string> filePathList = JsonManager.Load<List<string>>(_filePath);
                 if (filePathList != null)
                 {
                     FileListControl.FilePathList = filePathList;
@@ -42,7 +35,7 @@ namespace StatisticApp.View.Forms
         {
             try
             {
-                FileManager.Save(FileListControl.FilePathList, _filePath);
+                JsonManager.Save(FileListControl.FilePathList, _filePath);
             }
             catch (Exception ex)
             {

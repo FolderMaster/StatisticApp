@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace StatisticApp.Model.Births
 {
@@ -11,7 +12,7 @@ namespace StatisticApp.Model.Births
             get
             {
                 double maleCount = 0;
-                foreach (var birth in Births)
+                foreach (Birth birth in Births)
                 {
                     if(birth.Sex == Birth.Gender.Male)
                     {
@@ -34,9 +35,27 @@ namespace StatisticApp.Model.Births
         {
         }
 
-        public BirthDataSet(List<Birth> births)
+        public BirthDataSet(IEnumerable<Birth> births)
         {
-            Births = births;
+            Births = births.ToList();
+        }
+
+        public static double GetGeneralSexRatio(IEnumerable<BirthDataSet> birthDataSets)
+        {
+            double maleCount = 0;
+            double count = 0;
+            foreach(BirthDataSet birthDataSet in birthDataSets)
+            {
+                foreach (var birth in birthDataSet.Births)
+                {
+                    if (birth.Sex == Birth.Gender.Male)
+                    {
+                        ++maleCount;
+                    }
+                }
+                count += birthDataSet.Count;
+            }
+            return maleCount / count;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace StatisticApp.Model.Shedules
+﻿namespace StatisticApp.Model.Schedules
 {
     public interface IScale
     {
