@@ -31,7 +31,7 @@ namespace StatisticApp.View.Forms
                 }
                 else if (filePath.EndsWith(".xlsx"))
                 {
-                    birthDataSets.Add(XlsxReader.ReadBitrhDataSet(filePath));
+                    birthDataSets.Add(XlsxManager.ReadBitrhDataSet(filePath));
                 }
             }
             DisplayControl.Schedule = GetSchedule(birthDataSets);
@@ -41,7 +41,7 @@ namespace StatisticApp.View.Forms
         {
             Schedule result = new Schedule();
             result.Axises.Add(new Axis(new LogScale(), (min) => min * 0.9, (max) => max * 1.1));
-            result.Axises.Add(new Axis(new LinearScale(), (min) => min * 0.9, (max) => max * 1.1));
+            result.Axises.Add(new Axis(new LinearScale(), (min) => min * 0.99, (max) => max * 1.01));
             foreach(BirthDataSet birthData in birthDataSets)
             {
                 result.Shapes.Add(new Point(new List<double>{birthData.Count,

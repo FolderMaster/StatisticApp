@@ -91,7 +91,7 @@
     <Compile Include="Model\Schedules\Point.cs" />
     <Compile Include="Model\Schedules\Schedule.cs" />
     <Compile Include="Model\Schedules\IShape.cs" />
-    <Compile Include="Model\XlsxReader.cs" />
+    <Compile Include="Model\XlsxManager.cs" />
     <Compile Include="View\Controls\DisplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
-            this.DisplayButton = new System.Windows.Forms.Button();
             this.FileListControl = new StatisticApp.View.Controls.FileListControl();
+            this.DisplayButton = new System.Windows.Forms.Button();
             this.FilesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,21 +42,10 @@
             this.FilesGroupBox.Controls.Add(this.FileListControl);
             this.FilesGroupBox.Location = new System.Drawing.Point(12, 12);
             this.FilesGroupBox.Name = "FilesGroupBox";
-            this.FilesGroupBox.Size = new System.Drawing.Size(256, 412);
+            this.FilesGroupBox.Size = new System.Drawing.Size(560, 608);
             this.FilesGroupBox.TabIndex = 1;
             this.FilesGroupBox.TabStop = false;
             this.FilesGroupBox.Text = "Files";
-            // 
-            // DisplayButton
-            // 
-            this.DisplayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DisplayButton.Location = new System.Drawing.Point(193, 430);
-            this.DisplayButton.Name = "DisplayButton";
-            this.DisplayButton.Size = new System.Drawing.Size(75, 23);
-            this.DisplayButton.TabIndex = 2;
-            this.DisplayButton.Text = "Display";
-            this.DisplayButton.UseVisualStyleBackColor = true;
-            this.DisplayButton.Click += new System.EventHandler(this.DisplayButton_Click);
             // 
             // FileListControl
             // 
@@ -64,14 +53,25 @@
             this.FileListControl.Location = new System.Drawing.Point(3, 16);
             this.FileListControl.Name = "FileListControl";
             this.FileListControl.SelectedIndex = -1;
-            this.FileListControl.Size = new System.Drawing.Size(250, 393);
+            this.FileListControl.Size = new System.Drawing.Size(554, 589);
             this.FileListControl.TabIndex = 0;
+            // 
+            // DisplayButton
+            // 
+            this.DisplayButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DisplayButton.Location = new System.Drawing.Point(497, 626);
+            this.DisplayButton.Name = "DisplayButton";
+            this.DisplayButton.Size = new System.Drawing.Size(75, 23);
+            this.DisplayButton.TabIndex = 2;
+            this.DisplayButton.Text = "Display";
+            this.DisplayButton.UseVisualStyleBackColor = true;
+            this.DisplayButton.Click += new System.EventHandler(this.DisplayButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 465);
+            this.ClientSize = new System.Drawing.Size(584, 661);
             this.Controls.Add(this.DisplayButton);
             this.Controls.Add(this.FilesGroupBox);
             this.Name = "MainForm";

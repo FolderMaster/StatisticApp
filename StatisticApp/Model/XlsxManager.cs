@@ -5,7 +5,7 @@ using StatisticApp.Model.Births;
 
 namespace StatisticApp.Model
 {
-    public static class XlsxReader
+    public static class XlsxManager
     {
         public static BirthDataSet ReadBitrhDataSet(string filePath)
         {
