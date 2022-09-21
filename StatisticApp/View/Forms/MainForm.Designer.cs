@@ -31,6 +31,7 @@
             this.FilesGroupBox = new System.Windows.Forms.GroupBox();
             this.FileListControl = new StatisticApp.View.Controls.FileListControl();
             this.DisplayButton = new System.Windows.Forms.Button();
+            this.SettingsButton = new System.Windows.Forms.Button();
             this.FilesGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,11 +68,23 @@
             this.DisplayButton.UseVisualStyleBackColor = true;
             this.DisplayButton.Click += new System.EventHandler(this.DisplayButton_Click);
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SettingsButton.Location = new System.Drawing.Point(12, 626);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.SettingsButton.TabIndex = 3;
+            this.SettingsButton.Text = "Settings";
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 661);
+            this.Controls.Add(this.SettingsButton);
             this.Controls.Add(this.DisplayButton);
             this.Controls.Add(this.FilesGroupBox);
             this.Name = "MainForm";
@@ -88,6 +101,7 @@
         private Controls.FileListControl FileListControl;
         private System.Windows.Forms.GroupBox FilesGroupBox;
         private System.Windows.Forms.Button DisplayButton;
+        private System.Windows.Forms.Button SettingsButton;
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿namespace StatisticApp.View.Controls
 {
-    partial class DisplayControl
+    partial class SolidBrushEditorControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,38 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.Canvas = new System.Windows.Forms.Panel();
-            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.ColorEditorControl = new StatisticApp.View.Controls.ColorEditorControl();
+            this.ColorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Canvas
+            // ColorEditorControl
             // 
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.Location = new System.Drawing.Point(0, 0);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(455, 322);
-            this.Canvas.TabIndex = 0;
-            this.Canvas.SizeChanged += new System.EventHandler(this.Canvas_SizeChanged);
-            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
-            this.Canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseClick);
-            this.Canvas.MouseHover += new System.EventHandler(this.Canvas_MouseHover);
-            this.Canvas.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseWheel);
+            this.ColorEditorControl.Color = System.Drawing.Color.Empty;
+            this.ColorEditorControl.Location = new System.Drawing.Point(37, 0);
+            this.ColorEditorControl.Name = "ColorEditorControl";
+            this.ColorEditorControl.Size = new System.Drawing.Size(75, 23);
+            this.ColorEditorControl.TabIndex = 1;
+            this.ColorEditorControl.ColorChanged += new System.EventHandler(this.ColorEditorControl_ColorChanged);
             // 
-            // DisplayControl
+            // ColorLabel
+            // 
+            this.ColorLabel.AutoSize = true;
+            this.ColorLabel.Location = new System.Drawing.Point(-3, 5);
+            this.ColorLabel.Name = "ColorLabel";
+            this.ColorLabel.Size = new System.Drawing.Size(34, 13);
+            this.ColorLabel.TabIndex = 0;
+            this.ColorLabel.Text = "Color:";
+            // 
+            // SolidBrushEditorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Canvas);
-            this.Name = "DisplayControl";
-            this.Size = new System.Drawing.Size(455, 322);
+            this.Controls.Add(this.ColorLabel);
+            this.Controls.Add(this.ColorEditorControl);
+            this.Name = "SolidBrushEditorControl";
+            this.Size = new System.Drawing.Size(112, 23);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Canvas;
-        private System.Windows.Forms.ToolTip ToolTip;
+        private ColorEditorControl ColorEditorControl;
+        private System.Windows.Forms.Label ColorLabel;
     }
 }

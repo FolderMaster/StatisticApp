@@ -85,13 +85,21 @@
     <Compile Include="Model\Births\BirthDataSet.cs" />
     <Compile Include="Model\CsvManager.cs" />
     <Compile Include="Model\Schedules\IScale.cs" />
-    <Compile Include="Model\Schedules\Line.cs" />
+    <Compile Include="Model\Schedules\LineSegment.cs" />
     <Compile Include="Model\Schedules\LinearScale.cs" />
     <Compile Include="Model\Schedules\LogScale.cs" />
     <Compile Include="Model\Schedules\Point.cs" />
+    <Compile Include="Model\Schedules\PolygonalChain.cs" />
     <Compile Include="Model\Schedules\Schedule.cs" />
     <Compile Include="Model\Schedules\IShape.cs" />
+    <Compile Include="Model\SettingsFormat.cs" />
     <Compile Include="Model\XlsxManager.cs" />
+    <Compile Include="View\Controls\ColorEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ColorEditorControl.Designer.cs">
+      <DependentUpon>ColorEditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Controls\DisplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,11 +112,41 @@
     <Compile Include="View\Controls\FileListControl.Designer.cs">
       <DependentUpon>FileListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Controls\PenEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\PenEditorControl.Designer.cs">
+      <DependentUpon>PenEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\ScheduleInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\ScheduleInfoControl.Designer.cs">
+      <DependentUpon>ScheduleInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SettingsControl.Designer.cs">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Controls\SolidBrushEditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Controls\SolidBrushEditorControl.Designer.cs">
+      <DependentUpon>SolidBrushEditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\DisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Forms\DisplayForm.Designer.cs">
       <DependentUpon>DisplayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -118,6 +156,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MessageBoxManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,17 +172,40 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Controls\ColorEditorControl.resx">
+      <DependentUpon>ColorEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\DisplayControl.resx">
       <DependentUpon>DisplayControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Controls\FileListControl.resx">
       <DependentUpon>FileListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\PenEditorControl.resx">
+      <DependentUpon>PenEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\ScheduleInfoControl.resx">
+      <DependentUpon>ScheduleInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SettingsControl.resx">
+      <DependentUpon>SettingsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Controls\SolidBrushEditorControl.resx">
+      <DependentUpon>SolidBrushEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\DisplayForm.resx">
       <DependentUpon>DisplayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

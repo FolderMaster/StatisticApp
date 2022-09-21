@@ -18,30 +18,35 @@ namespace StatisticApp.View.Forms
 {
     public partial class DisplayForm : Form
     {
-        public DisplayForm(List<string> filePathList)
+        public DisplayForm(List<string> filePathList, SettingsFormat settings)
         {
             InitializeComponent();
 
-            List<BirthDataSet> birthDataSets = new List<BirthDataSet>();
-            foreach (string filePath in filePathList)
+            DisplayControl.Settings = settings;
+            if(filePathList != null)
             {
-                if (filePath.EndsWith(".csv"))
+                List<BirthDataSet> birthDataSets = new List<BirthDataSet>();
+                foreach (string filePath in filePathList)
                 {
-                    birthDataSets.Add(CsvManager.ReadBitrhDataSet(filePath));
+                    if (filePath.EndsWith(".csv"))
+                    {
+                        birthDataSets.Add(CsvManager.ReadBitrhDataSet(filePath));
+                    }
+                    else if (filePath.EndsWith(".xlsx"))
+                    {
+                        birthDataSets.Add(XlsxManager.ReadBitrhDataSet(filePath));
+                    }
                 }
-                else if (filePath.EndsWith(".xlsx"))
-                {
-                    birthDataSets.Add(XlsxManager.ReadBitrhDataSet(filePath));
-                }
+                DisplayControl.Schedule = GetSchedule(birthDataSets);
+                DisplayControl.DefaultDisplay();
             }
-            DisplayControl.Schedule = GetSchedule(birthDataSets);
         }
 
         private Schedule GetSchedule(List<BirthDataSet> birthDataSets)
         {
             Schedule result = new Schedule();
-            result.Axises.Add(new Axis(new LogScale(), (min) => min * 0.9, (max) => max * 1.1));
-            result.Axises.Add(new Axis(new LinearScale(), (min) => min * 0.99, (max) => max * 1.01));
+            result.Axises.Add(new Axis(new LogScale()));
+            result.Axises.Add(new Axis(new LinearScale()));
             foreach(BirthDataSet birthData in birthDataSets)
             {
                 result.Shapes.Add(new Point(new List<double>{birthData.Count,
@@ -49,7 +54,7 @@ namespace StatisticApp.View.Forms
             }
             
             double generalSexRatio = BirthDataSet.GetGeneralSexRatio(birthDataSets);
-            result.Shapes.Add(new Line(
+            result.Shapes.Add(new LineSegment(
                 new Point(new List<double> {result.GetMin(0), generalSexRatio}),
                 new Point(new List<double> {result.GetMax(0), generalSexRatio })));
             return result;

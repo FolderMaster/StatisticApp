@@ -10,6 +10,8 @@ namespace StatisticApp.View.Forms
     {
         private string _filePath = "Save.txt";
 
+        private SettingsFormat _settings = new SettingsFormat();
+
         public MainForm()
         {
             InitializeComponent();
@@ -45,8 +47,17 @@ namespace StatisticApp.View.Forms
 
         private void DisplayButton_Click(object sender, EventArgs e)
         {
-            DisplayForm displayForm = new DisplayForm(FileListControl.FilePathList);
+            DisplayForm displayForm = new DisplayForm(FileListControl.FilePathList, _settings);
             displayForm.ShowDialog();
+        }
+
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm(_settings);
+            if(settingsForm.ShowDialog() == DialogResult.OK)
+            {
+                _settings = settingsForm.Settings;
+            }
         }
     }
 }

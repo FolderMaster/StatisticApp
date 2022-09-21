@@ -7,20 +7,6 @@ namespace StatisticApp.Model.Schedules
     {
         public List<double> Coordinates { get; set; } = new List<double>();
 
-        public List<List<double>> Points
-        {
-            get
-            {
-                List<List<double>> result = new List<List<double>>();
-                result.Add(Coordinates);
-                return result;
-            }
-            set
-            {
-                Coordinates = value[0];
-            }
-        }
-
         public Point()
         {
         }
@@ -33,7 +19,7 @@ namespace StatisticApp.Model.Schedules
         public IShape Display(Schedule schedule)
         {
             List<double> coordinates = new List<double>();
-            for (int n = 0; n < schedule.Axises.Count; n++)
+            for (int n = 0; n < schedule.Axises.Count; ++n)
             {
                 if(n < Coordinates.Count)
                 {
@@ -45,6 +31,21 @@ namespace StatisticApp.Model.Schedules
                 }
             }
             return new Point(coordinates);
+        }
+
+        public double GetMax(Schedule schedule, int axisIndex)
+        {
+            return axisIndex < Coordinates.Count ? Coordinates[axisIndex] : schedule.DefaultValue;
+        }
+
+        public double GetMin(Schedule schedule, int axisIndex)
+        {
+            return axisIndex < Coordinates.Count ? Coordinates[axisIndex] : schedule.DefaultValue;
+        }
+
+        public override string ToString()
+        {
+            return string.Join(";", Coordinates);
         }
     }
 }

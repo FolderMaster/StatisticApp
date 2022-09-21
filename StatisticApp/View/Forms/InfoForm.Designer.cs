@@ -1,6 +1,6 @@
 ﻿namespace StatisticApp.View.Forms
 {
-    partial class DisplayForm
+    partial class InfoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DisplayControl = new StatisticApp.View.Controls.DisplayControl();
+            this.ScheduleInfoControl = new StatisticApp.View.Controls.ScheduleInfoControl();
             this.SuspendLayout();
             // 
-            // DisplayControl
+            // ScheduleInfoControl
             // 
-            this.DisplayControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DisplayControl.Location = new System.Drawing.Point(0, 0);
-            this.DisplayControl.Name = "DisplayControl";
-            this.DisplayControl.Size = new System.Drawing.Size(1035, 352);
-            this.DisplayControl.TabIndex = 0;
+            this.ScheduleInfoControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ScheduleInfoControl.Location = new System.Drawing.Point(0, 0);
+            this.ScheduleInfoControl.Name = "ScheduleInfoControl";
+            this.ScheduleInfoControl.Size = new System.Drawing.Size(800, 633);
+            this.ScheduleInfoControl.TabIndex = 0;
             // 
-            // DisplayForm
+            // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 352);
-            this.Controls.Add(this.DisplayControl);
-            this.Name = "DisplayForm";
-            this.Text = "Display";
+            this.ClientSize = new System.Drawing.Size(800, 633);
+            this.Controls.Add(this.ScheduleInfoControl);
+            this.Name = "InfoForm";
+            this.Text = "InfoForm";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controls.DisplayControl DisplayControl;
+        private Controls.ScheduleInfoControl ScheduleInfoControl;
     }
 }

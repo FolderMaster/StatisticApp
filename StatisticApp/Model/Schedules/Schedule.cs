@@ -47,44 +47,45 @@ namespace StatisticApp.Model.Schedules
 
         public double GetMin(int axisesIndex)
         {
-            double result = DefaultValue;
-            List<double> coordinates = GetCoordinates(axisesIndex);
-            if(coordinates.Count != 0)
+            if (Shapes.Count == 0)
             {
-                result = coordinates.Min();
+                return DefaultValue;
             }
-            return result;
+            else
+            {
+                List<double> coordinates = new List<double>();
+                foreach (IShape shape in Shapes)
+                {
+                    coordinates.Add(shape.GetMin(this, axisesIndex));
+                }
+                return coordinates.Min();
+            }
         }
 
         public double GetMax(int axisesIndex)
         {
-            double result = DefaultValue;
-            List<double> coordinates = GetCoordinates(axisesIndex);
-            if (coordinates.Count != 0)
+            if (Shapes.Count == 0)
             {
-                result = coordinates.Max();
+                return DefaultValue;
             }
-            return result;
+            else
+            {
+                List<double> coordinates = new List<double>();
+                foreach (IShape shape in Shapes)
+                {
+                    coordinates.Add(shape.GetMax(this, axisesIndex));
+                }
+                return coordinates.Max();
+            }
         }
 
-        private List<double> GetCoordinates(int axiseIndex)
+        public void DefaultDisplay()
         {
-            List<double> result = new List<double>();
-            for (int s = 0; s < Shapes.Count; ++s)
+            for(int n = 0; n < Axises.Count; ++n)
             {
-                for (int p = 0; p < Shapes[s].Points.Count; ++p)
-                {
-                    if (axiseIndex < Shapes[s].Points[p].Count)
-                    {
-                        result.Add(Shapes[s].Points[p][axiseIndex]);
-                    }
-                    else
-                    {
-                        result.Add(DefaultValue);
-                    }
-                }
+                Axises[n].Max = GetMax(n);
+                Axises[n].Min = GetMin(n);
             }
-            return result;
         }
     }
 }

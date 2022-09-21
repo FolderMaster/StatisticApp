@@ -1,6 +1,6 @@
 ﻿namespace StatisticApp.View.Controls
 {
-    partial class DisplayControl
+    partial class ColorEditorControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -28,38 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.Canvas = new System.Windows.Forms.Panel();
-            this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Canvas
+            // Button
             // 
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.Location = new System.Drawing.Point(0, 0);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(455, 322);
-            this.Canvas.TabIndex = 0;
-            this.Canvas.SizeChanged += new System.EventHandler(this.Canvas_SizeChanged);
-            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
-            this.Canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseClick);
-            this.Canvas.MouseHover += new System.EventHandler(this.Canvas_MouseHover);
-            this.Canvas.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseWheel);
+            this.Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Button.Location = new System.Drawing.Point(0, 0);
+            this.Button.Name = "Button";
+            this.Button.Size = new System.Drawing.Size(75, 23);
+            this.Button.TabIndex = 0;
+            this.Button.UseVisualStyleBackColor = true;
+            this.Button.Click += new System.EventHandler(this.Button_Click);
             // 
-            // DisplayControl
+            // ColorEditorControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Canvas);
-            this.Name = "DisplayControl";
-            this.Size = new System.Drawing.Size(455, 322);
+            this.Controls.Add(this.Button);
+            this.Name = "ColorEditorControl";
+            this.Size = new System.Drawing.Size(75, 23);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Canvas;
-        private System.Windows.Forms.ToolTip ToolTip;
+        private System.Windows.Forms.Button Button;
     }
 }
