@@ -15,14 +15,9 @@ namespace StatisticApp.Model.Schedules
             get
             {
                 List<IShape> result = new List<IShape>();
-                for (int a = 0; a < Axises.Count; ++a)
+                foreach(IShape shape in Shapes)
                 {
-                    Axises[a].Min = GetMin(a);
-                    Axises[a].Max = GetMax(a);
-                }
-                for(int n = 0; n < Shapes.Count; ++n)
-                {
-                    result.Add(Shapes[n].Display(this));
+                    result.Add(shape.Display(this));
                 }
                 return result;
             }
@@ -83,8 +78,13 @@ namespace StatisticApp.Model.Schedules
         {
             for(int n = 0; n < Axises.Count; ++n)
             {
-                Axises[n].Max = GetMax(n);
-                Axises[n].Min = GetMin(n);
+                Axis axis = Axises[n];
+
+                axis.Max = GetMax(n);
+                axis.Max = axis.MaxFunction(axis.Max);
+
+                axis.Min = GetMin(n);
+                axis.Min = axis.MinFunction(axis.Min);
             }
         }
     }

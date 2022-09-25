@@ -74,7 +74,7 @@ namespace StatisticApp.Model.Schedules
 
         public override string ToString()
         {
-            return string.Join("\n", Points);
+            return string.Join("\t", Points);
         }
     }
 }

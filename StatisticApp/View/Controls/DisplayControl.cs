@@ -32,6 +32,7 @@ namespace StatisticApp.View.Controls
                         _schedule = value;
                         _schedule.Axises[0].Length = Width;
                         _schedule.Axises[1].Length = Height;
+                        _schedule.DefaultDisplay();
 
                         Canvas.Invalidate();
                     }
@@ -62,13 +63,6 @@ namespace StatisticApp.View.Controls
             Settings = new SettingsFormat();
         }
 
-        public void DefaultDisplay()
-        {
-            Schedule.DefaultDisplay();
-
-            Canvas.Invalidate();
-        }
-
         private void Canvas_SizeChanged(object sender, EventArgs e)
         {
             Schedule.Axises[0].Length = Width;
@@ -77,15 +71,27 @@ namespace StatisticApp.View.Controls
             Canvas.Invalidate();
         }
 
-        private void Canvas_MouseClick(object sender, MouseEventArgs e)
-        {
-            InfoForm infoForm = new InfoForm(Schedule.Shapes);
-            infoForm.ShowDialog();
-        }
-
         private void Canvas_MouseHover(object sender, EventArgs e)
         {
-            
+            List<IShape> display = Schedule.Displays;
+            List<IShape> shapes = Schedule.Shapes;
+            for (int n = 0; n < display.Count; ++n)
+            {
+                if (display[n] is Point point)
+                {
+                    Point cursor = new Point(new List<double>() { Width, Height });
+                    if(point.GetDistance(cursor, Schedule) > 5000)
+                    {
+                        ToolTip.SetToolTip(this, shapes[n].ToString());
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void Canvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            ToolTip.RemoveAll();
         }
 
         private void Canvas_MouseWheel(object sender, MouseEventArgs e)
@@ -143,6 +149,12 @@ namespace StatisticApp.View.Controls
                         Settings.FontSolidBrush, (x1 + x2) / 2, Height - (y1 + y2) / 2);
                 }
             }
+        }
+
+        private void Canvas_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            InfoForm infoForm = new InfoForm(Schedule.Shapes);
+            infoForm.Show();
         }
     }
 }

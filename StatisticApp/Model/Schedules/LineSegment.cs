@@ -64,7 +64,7 @@
 
         public override string ToString()
         {
-            return $"Begin:\t{Begin}\nEnd:\t{End}";
+            return $"{Begin}\t{End}";
         }
     }
 }

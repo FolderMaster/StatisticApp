@@ -38,15 +38,15 @@ namespace StatisticApp.View.Forms
                     }
                 }
                 DisplayControl.Schedule = GetSchedule(birthDataSets);
-                DisplayControl.DefaultDisplay();
             }
         }
 
         private Schedule GetSchedule(List<BirthDataSet> birthDataSets)
         {
             Schedule result = new Schedule();
-            result.Axises.Add(new Axis(new LogScale()));
-            result.Axises.Add(new Axis(new LinearScale()));
+            result.Axises.Add(new Axis(new LogScale(), (min) => min * 0.8, (max) => max * 1.2));
+            result.Axises.Add(new Axis(new LinearScale(), (min) => min * 0.99,
+                (max) => max * 1.01));
             foreach(BirthDataSet birthData in birthDataSets)
             {
                 result.Shapes.Add(new Point(new List<double>{birthData.Count,

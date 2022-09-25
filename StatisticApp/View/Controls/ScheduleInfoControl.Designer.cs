@@ -30,65 +30,72 @@
         {
             this.PointsTextBox = new System.Windows.Forms.TextBox();
             this.LineSegmentsTextBox = new System.Windows.Forms.TextBox();
-            this.PointsLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.PointsGroupBox = new System.Windows.Forms.GroupBox();
+            this.LineSegmentsGroupBox = new System.Windows.Forms.GroupBox();
+            this.PointsGroupBox.SuspendLayout();
+            this.LineSegmentsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // PointsTextBox
             // 
-            this.PointsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PointsTextBox.Location = new System.Drawing.Point(0, 16);
+            this.PointsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PointsTextBox.Location = new System.Drawing.Point(3, 16);
             this.PointsTextBox.Multiline = true;
             this.PointsTextBox.Name = "PointsTextBox";
             this.PointsTextBox.ReadOnly = true;
             this.PointsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.PointsTextBox.Size = new System.Drawing.Size(518, 208);
+            this.PointsTextBox.Size = new System.Drawing.Size(318, 618);
             this.PointsTextBox.TabIndex = 0;
             // 
             // LineSegmentsTextBox
             // 
-            this.LineSegmentsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LineSegmentsTextBox.Location = new System.Drawing.Point(0, 243);
+            this.LineSegmentsTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LineSegmentsTextBox.Location = new System.Drawing.Point(3, 16);
             this.LineSegmentsTextBox.Multiline = true;
             this.LineSegmentsTextBox.Name = "LineSegmentsTextBox";
             this.LineSegmentsTextBox.ReadOnly = true;
             this.LineSegmentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LineSegmentsTextBox.Size = new System.Drawing.Size(518, 253);
+            this.LineSegmentsTextBox.Size = new System.Drawing.Size(318, 618);
             this.LineSegmentsTextBox.TabIndex = 1;
             // 
-            // PointsLabel
+            // PointsGroupBox
             // 
-            this.PointsLabel.AutoSize = true;
-            this.PointsLabel.Location = new System.Drawing.Point(-3, 0);
-            this.PointsLabel.Name = "PointsLabel";
-            this.PointsLabel.Size = new System.Drawing.Size(39, 13);
-            this.PointsLabel.TabIndex = 2;
-            this.PointsLabel.Text = "Points:";
+            this.PointsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PointsGroupBox.Controls.Add(this.PointsTextBox);
+            this.PointsGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.PointsGroupBox.Name = "PointsGroupBox";
+            this.PointsGroupBox.Size = new System.Drawing.Size(324, 637);
+            this.PointsGroupBox.TabIndex = 4;
+            this.PointsGroupBox.TabStop = false;
+            this.PointsGroupBox.Text = "Points";
             // 
-            // label1
+            // LineSegmentsGroupBox
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-3, 227);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "LineSegments:";
+            this.LineSegmentsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LineSegmentsGroupBox.Controls.Add(this.LineSegmentsTextBox);
+            this.LineSegmentsGroupBox.Location = new System.Drawing.Point(327, 0);
+            this.LineSegmentsGroupBox.Name = "LineSegmentsGroupBox";
+            this.LineSegmentsGroupBox.Size = new System.Drawing.Size(324, 637);
+            this.LineSegmentsGroupBox.TabIndex = 5;
+            this.LineSegmentsGroupBox.TabStop = false;
+            this.LineSegmentsGroupBox.Text = "Line segments";
             // 
             // ScheduleInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.PointsLabel);
-            this.Controls.Add(this.LineSegmentsTextBox);
-            this.Controls.Add(this.PointsTextBox);
+            this.Controls.Add(this.LineSegmentsGroupBox);
+            this.Controls.Add(this.PointsGroupBox);
             this.Name = "ScheduleInfoControl";
-            this.Size = new System.Drawing.Size(518, 496);
+            this.Size = new System.Drawing.Size(651, 637);
+            this.PointsGroupBox.ResumeLayout(false);
+            this.PointsGroupBox.PerformLayout();
+            this.LineSegmentsGroupBox.ResumeLayout(false);
+            this.LineSegmentsGroupBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -96,7 +103,7 @@
 
         private System.Windows.Forms.TextBox PointsTextBox;
         private System.Windows.Forms.TextBox LineSegmentsTextBox;
-        private System.Windows.Forms.Label PointsLabel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox PointsGroupBox;
+        private System.Windows.Forms.GroupBox LineSegmentsGroupBox;
     }
 }

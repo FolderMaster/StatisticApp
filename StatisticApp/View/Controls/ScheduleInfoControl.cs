@@ -43,9 +43,11 @@ namespace StatisticApp.View.Controls
                     lineSegments.Add(lineSegment);
                 }
             }
-            PointsTextBox.Text = string.Join("\r\n", points.OrderBy(point => point.Coordinates[0]));
-            LineSegmentsTextBox.Text = string.Join("\r\n", lineSegments.OrderBy(lineSegment =>
-            lineSegment.Begin.Coordinates[0]));
+
+            points.Sort();
+            lineSegments.Sort();
+            PointsTextBox.Text = string.Join("\r\n", points);
+            LineSegmentsTextBox.Text = string.Join("\r\n", lineSegments);
         }
     }
 }

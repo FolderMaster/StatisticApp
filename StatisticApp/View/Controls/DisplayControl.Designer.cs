@@ -42,9 +42,16 @@
             this.Canvas.TabIndex = 0;
             this.Canvas.SizeChanged += new System.EventHandler(this.Canvas_SizeChanged);
             this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
-            this.Canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseClick);
+            this.Canvas.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDoubleClick);
             this.Canvas.MouseHover += new System.EventHandler(this.Canvas_MouseHover);
+            this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
             this.Canvas.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseWheel);
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.AutoPopDelay = 5000;
+            this.ToolTip.InitialDelay = 0;
+            this.ToolTip.ReshowDelay = 0;
             // 
             // DisplayControl
             // 

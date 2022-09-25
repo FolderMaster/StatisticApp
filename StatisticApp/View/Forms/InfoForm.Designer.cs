@@ -46,9 +46,8 @@
             this.ClientSize = new System.Drawing.Size(800, 633);
             this.Controls.Add(this.ScheduleInfoControl);
             this.Name = "InfoForm";
-            this.Text = "InfoForm";
+            this.Text = "Info";
             this.ResumeLayout(false);
-
         }
 
         #endregion
