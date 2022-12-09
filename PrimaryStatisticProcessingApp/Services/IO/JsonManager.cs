@@ -2,7 +2,7 @@
 
 using Newtonsoft.Json;
 
-namespace StatisticApp.Model
+namespace PrimaryStatisticProcessingApp.Services.IO
 {
     public static class JsonManager
     {

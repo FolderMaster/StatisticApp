@@ -5,9 +5,10 @@ using System.Collections.Generic;
 
 using StatisticApp.Model.Schedules;
 
-using Point = StatisticApp.Model.Schedules.Point;
 using StatisticApp.Model;
 using StatisticApp.View.Forms;
+
+using Point = StatisticApp.Model.Schedules.Point;
 
 namespace StatisticApp.View.Controls
 {
